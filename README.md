@@ -1,5 +1,7 @@
 # Luna 桌宠（中文版 + 滴答清单提醒 + 露娜原声音色）
 
+仓库：<https://github.com/lingxian2626-beep/lunasama>
+
 基于 [annali07/luna-sama](https://github.com/annali07/luna-sama) 改造：
 - **中文输入输出**：LLM 后端为 Qwen2.5-1.5B-Instruct（4bit 量化，推理约 1 秒），露娜用中文说话
 - **露娜原声音色**：GPT-SoVITS 加载作者训练的露娜音色权重（v2ProPlus + SV 声纹），
@@ -20,7 +22,7 @@ luna-sama/
 │   ├── tts.py            # （备用）edge-tts 中文语音
 │   ├── ticktick.py       # 滴答清单客户端（api.dida365.com）+ 提醒调度
 │   └── reminder_state.json  # 已提醒状态（自动管理，可删除重置）
-├── gsv-src/              # GPT-SoVITS 推理源码 + 露娜音色权重
+├── gsv-src/              # ⚠️ 不在本仓库内，需自行准备（见下方说明）
 │   └── gsv/
 │       ├── weights/      # xxx-gpt-e50.ckpt + xxx_sovits_e24_s456.pth（露娜音色）
 │       ├── pretrained_models/  # hubert + bert + SV 声纹模型
@@ -45,6 +47,12 @@ powershell -ExecutionPolicy Bypass -File start-luna.ps1
 3. 启动 15 秒后开始每 90 秒检查滴答清单，按当天任务和习惯时间点提醒，**露娜音色播报**
 
 ## 露娜音色说明
+
+> **gsv-src/ 不在本仓库内**（约 1.5GB 权重，超出 GitHub 限制）。部署时需要：
+> 1. 克隆 GPT-SoVITS 推理源码（`gsv-src/gsv/`，即 [GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS) 的 gsv 目录）
+> 2. 下载露娜音色权重 `xxx-gpt-e50.ckpt` + `xxx_sovits_e24_s456.pth`（作者 HuggingFace 仓库）
+> 3. 下载 pretrained_models（chinese-hubert-base / chinese-roberta-wwm-ext-large / SV eres2net）
+> 4. 参考音频 `extracted_ogg/v_lun0022.ogg`（本仓库 `app/luna/test/v_lun0022.ogg` 有副本，4 秒裁剪版见 `v_lun0022_4s.wav`）
 
 - 音色来自作者训练的 GPT-SoVITS 权重（`xxx-gpt-e50.ckpt` + `xxx_sovits_e24_s456.pth`，v2ProPlus）
 - 参考音频 `v_lun0022_4s.wav`（从露娜原声 9.1 秒裁剪 4 秒，跨语言克隆用中文参考文本）
