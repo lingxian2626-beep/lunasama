@@ -1,0 +1,14 @@
+# Luna 桌宠后端依赖（Python 3.13 / Windows）
+# torch 需单独安装 CUDA 版：pip install torch --index-url https://download.pytorch.org/whl/cu124
+# 或从阿里镜像下载 wheel：
+#   https://mirrors.aliyun.com/pytorch-wheels/cu124/torch-2.6.0%2Bcu124-cp313-cp313-win_amd64.whl
+transformers>=4.49
+accelerate
+bitsandbytes
+peft
+fastapi
+uvicorn
+requests
+edge-tts
+modelscope
+numpy

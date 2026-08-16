@@ -1,0 +1,22 @@
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== 运行时数据（日志/音频/状态）=====
+logs/
+out_audio/
+backend/reminder_state.json
+
+# ===== 第三方 GPT-SoVITS 源码（1.5GB，含权重），需单独克隆，见 README =====
+gsv-src/
+
+# ===== Qt 构建产物 =====
+app/luna/build/
+app/luna/dist/
+
+# ===== 模型权重（GitHub 100MB 限制，且不应入库）=====
+*.ckpt
+*.pth
+*.safetensors
+*.onnx
